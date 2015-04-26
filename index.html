@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Decimal to Binary Converter</title>
+		
+	</head>
+	<body>
+
+		<script type="text/javascript">
+		
+		function isNumber(evt) {
+    		evt = (evt) ? evt : window.event;
+    		var charCode = (evt.which) ? evt.which : evt.keyCode;
+
+    		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        		return false;
+    		}
+    		return true;
+		}
+
+		function convert(id){
+			var x = document.getElementById(id).value;
+			var y = dec2Bin(x);
+			var z = dec2Hex(x).toUpperCase();
+			document.getElementById("binOutput").innerHTML=y;
+			document.getElementById("hexOutput").innerHTML=z;
+		}
+
+		function dec2Bin(x){
+    		return (x >>> 0).toString(2);
+		}
+
+		function dec2Hex(x){
+    		return (x >>> 0).toString(16);
+		}
+
+		</script>
+
+		<h1>Decimal to Binary Converter</h1>
+			<p>Decimal: <input type="text" onkeypress="return isNumber(event)" onkeyup="convert('decInput')"id="decInput" placeholder="enter decimal value"/></p>
+			<p>Binary: <span id="binOutput"></span></p>
+			<p>Hexidecimal: <span id="hexOutput"></span></p>
+			<input type="text" onkeypress="return isNumber(event)" onkeyup="convert()"id="decInput" value="enter decimal value"/>
+
+		<h2><a href="HIW_decimal_to_binary_converter.html">How it Works</a></h2>
+
+
+	</body>
+</html>
